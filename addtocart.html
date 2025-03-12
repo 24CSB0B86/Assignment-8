@@ -3,244 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Catalog</title>
+    <title>Amakart - Shopping Kart</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
     <style>
-        
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: #f9f9f9;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: background 0.3s ease;
+            background: #121212;
+            color: white;
         }
 
-       
         header {
-            background-color: #131921;
-            color: white;
-            padding: 50px 0;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease;
-        }
-
-        header h1 {
-            font-size: 36px;
-        }
-
-       
-        #intro-section {
-            text-align: center;
-            margin: 50px 0;
-            padding: 40px;
-            background-color: #ff4800;
-            color: white;
-            border-radius: 12px;
-            width: 80%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        #intro-section h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        #intro-section p {
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
-
-        #intro-section .cta-button {
-            background-color: #131921;
-            color: white;
-            padding: 18px 40px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 18px;
-            transition: background-color 0.3s ease;
-        }
-
-        #intro-section .cta-button:hover {
-            background-color: #000000;
-        }
-
-       
-        main {
             display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            width: 100%;
-            padding: 50px 0;
-            gap: 30px;
-            margin-bottom: 100px;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to right, #8A2BE2, #FF00FF);
+            padding: 15px 30px;
+            font-size: 1.2rem;
         }
 
-       
-        #product-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
-            width: 60%;
+        .logo {
+            font-weight: bold;
+            font-size: 1.5rem;
         }
 
-        #product-list .product {
-            background-color: white;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease-in-out;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 5px;
+        }
+
+        .nav-links a i {
+            font-size: 1.2rem;
+        }
+
+        .nav-links a:hover {
+            background: #FFD700;
+            color: black;
+        }
+
+        .description {
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 20px;
+            font-size: 1.1rem;
+            color: #bbb;
         }
 
-        #product-list .product:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 15px;
         }
 
-        #product-list img {
+        .product {
+            background: #1E1E1E;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+            text-align: center;
+            width: 240px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(138, 43, 226, 0.8);
+        }
+
+        .product img {
             width: 100%;
             height: 200px;
             object-fit: contain;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            transition: transform 0.3s ease;
+            border-radius: 5px;
+            background-color: #fff;
+            padding: 10px;
         }
 
-        #product-list img:hover {
-            transform: scale(1.1);
+        .product h3 {
+            font-size: 1.1rem;
+            margin: 10px 0;
         }
 
-        #product-list h3 {
-            font-size: 22px;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        #product-list p {
-            font-size: 16px;
-            color: #555;
-            margin-bottom: 20px;
+        .product p {
+            font-size: 1rem;
+            color: #FFD700;
+            font-weight: bold;
         }
 
         button {
-            background-color: #178b00;
+            background: #8A2BE2;
             color: white;
             border: none;
-            padding: 18px 40px;
-            border-radius: 20px;
+            padding: 10px;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 10px;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s ease-in-out;
         }
 
         button:hover {
-            background-color: #178b00;
+            background: #FF00FF;
             transform: scale(1.05);
         }
 
-       
-        #shopping-cart {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            width: 35%;
-            transition: transform 0.3s ease;
+        .cart {
+            background: #1E1E1E;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+            max-width: 450px;
         }
 
-        #shopping-cart h2 {
+        .cart h2 {
             text-align: center;
-            font-size: 36px;
-            color: #131921;
         }
 
-        #cart-items {
-            list-style-type: none;
+        .cart ul {
+            list-style: none;
             padding: 0;
-            margin-bottom: 20px;
         }
 
-        .cart-item {
+        .cart ul li {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            margin-bottom: 20px;
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #444;
         }
 
-        .cart-item:hover {
-            transform: scale(1.05);
-        }
-
-        .cart-item span {
-            font-size: 18px;
-        }
-
-        #total-price {
-            font-size: 24px;
+        .cart p {
+            text-align: center;
+            font-size: 1.2rem;
             font-weight: bold;
-            text-align: center;
-            margin-top: 30px;
-            color: #000000;
         }
 
-       
-        footer {
-            background-color: #131921;
+        .remove-btn {
+            background: red;
+            border: none;
             color: white;
-            text-align: center;
-            padding: 20px;
-            position: fixed;
-            width: 100%;
-            bottom: -100px;
-            transition: bottom 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
         }
 
-        footer.show {
-            bottom: 0;
-        }
-
-        footer p {
-            font-size: 16px;
+        .remove-btn:hover {
+            background: darkred;
         }
     </style>
 </head>
 <body>
+
     <header>
-        <h1 style="font-family:serif;">Techie Cart</h1>
+        <div class="logo">📦 AmaKart</div>
+        <ul class="nav-links">
+            <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#"><i class="fas fa-phone"></i> Contact Us</a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+        </ul>
     </header>
 
-    <section id="intro-section">
-        <h2>Welcome to the Ultimate Product Catalog!</h2>
-        <p>Explore our extensive range of products, from the latest gadgets to high-quality accessories. Discover your next favorite product and add it to your cart with just a click!</p>
-        <button class="cta-button" onclick="window.scrollTo(0, document.body.scrollHeight)">Start Shopping Now</button>
+    <section class="description">
+        <p>Welcome to our AmaKart. Explore various kinds of products. Offers are applicable, fastest finger first! Be the first one to get a <b>20% discount</b> on your first order!!</p>
     </section>
 
     <main>
-        <section id="product-list">
-            <!-- Products will be listed here -->
-        </section>
-        <section id="shopping-cart">
-            <h2>Shopping Cart</h2>
-            <ul id="cart-items">
-                <!-- Cart items will be displayed here -->
-            </ul>
-            <p id="total-price"></p>
+        <section id="product-list" class="products"></section>
+
+        <section id="cart" class="cart">
+            <h2>🛒 Shopping Cart</h2>
+            <ul id="cart-items"></ul>
+            <p><strong>Total:</strong> $<span id="cart-total">0.00</span></p>
         </section>
     </main>
-
-    <footer id="footer">
-        <p>&copy; 2025 Product Catalog. All rights reserved.</p>
-    </footer>
 
     <script>
         class Product {
@@ -250,6 +211,20 @@
                 this.price = price;
                 this.image = image;
             }
+
+            createProductElement() {
+                const productDiv = document.createElement("div");
+                productDiv.classList.add("product");
+
+                productDiv.innerHTML = `
+                    <img src="${this.image}" alt="${this.name}">
+                    <h3>${this.name}</h3>
+                    <p>$${this.price.toFixed(2)}</p>
+                    <button onclick="cart.addToCart(${this.id})">Add to Cart</button>
+                `;
+
+                return productDiv;
+            }
         }
 
         class Cart {
@@ -257,90 +232,43 @@
                 this.items = [];
             }
 
-            addItem(product) {
-                const currentTime = new Date().toLocaleString();
-                this.items.push({ product, addedAt: currentTime });
-                this.displayCart();
+            addToCart(productId) {
+                const product = products.find(p => p.id === productId);
+                if (product) {
+                    this.items.push(product);
+                    this.updateCartUI();
+                }
             }
 
-            displayCart() {
-                const cartItems = document.getElementById('cart-items');
-                cartItems.innerHTML = '';
-
-                this.items.forEach(item => {
-                    const li = document.createElement('li');
-                    li.className = 'cart-item';
-                    li.innerHTML = `
-                        <span>${item.product.name} - $${item.product.price}</span>
-                        <span>Added at: ${item.addedAt}</span>
-                        <button onclick="removeItem(${item.product.id})">Remove</button>
-                    `;
-                    cartItems.appendChild(li);
-                });
-                this.updateTotalPrice();
+            removeFromCart(index) {
+                this.items.splice(index, 1);
+                this.updateCartUI();
             }
 
-            removeItem(id) {
-                this.items = this.items.filter(item => item.product.id !== id);
-                this.displayCart();
-            }
-
-            updateTotalPrice() {
-                const totalPrice = document.getElementById('total-price');
-                const total = this.items.reduce((sum, item) => sum + item.product.price, 0);
-                totalPrice.textContent = `Total: $${total}`;
+            updateCartUI() {
+                document.getElementById("cart-items").innerHTML = this.items.map((item, index) => `
+                    <li>${item.name} - $${item.price.toFixed(2)}
+                        <button class="remove-btn" onclick="cart.removeFromCart(${index})">Remove</button>
+                    </li>
+                `).join("");
+                document.getElementById("cart-total").textContent = this.items.reduce((total, item) => total + item.price, 0).toFixed(2);
             }
         }
 
         const products = [
             new Product(1, 'iQOO Z9x 5G', 699, 'iqoo29x.jpg'),
             new Product(2, 'Samsung Galaxy A05', 299, 'ssg a05.jpg'),
-            new Product(3, 'HP Pavilion x360', 29, 'Hp pavilion.jpg'),
-            new Product(4, 'Nikon Digital Camera Z50II', 5, 'Nikon.jpg'),
+            new Product(3, 'HP Pavilion x360', 1299, 'Hp pavilion.jpg'),
+            new Product(4, 'Nikon Digital Camera Z50II', 1200, 'Nikon.jpg'),
             new Product(5, 'Sony PS5® Console', 999, 'PS5.jpg'),
-            new Product(6, 'MuscleBlaze Whey Protein', 9, 'MuscleBlaze.jpg'),
+            new Product(6, 'MuscleBlaze Whey Protein', 59, 'MuscleBlaze.jpg'),
             new Product(7, 'Axor Apex Hunter Helmet', 150, 'Axor apex.webp'),
-            new Product(8, 'Odessy Game', 69, 'Odessy.jpg')
+            new Product(8, 'Odyssey Game', 69, 'Odessy.jpg')
         ];
 
         const cart = new Cart();
-
-        window.addEventListener('DOMContentLoaded', () => {
-            const productList = document.getElementById('product-list');
-            products.forEach(product => {
-                const div = document.createElement('div');
-                div.className = 'product';
-                div.innerHTML = `
-                    <img src="${product.image}" alt="${product.name}">
-                    <h3>${product.name}</h3>
-                    <p>$${product.price}</p>
-                    <button onclick="addToCart(${product.id})">Add to Cart</button>
-                `;
-                productList.appendChild(div);
-            });
-        });
-
-        function addToCart(id) {
-            const product = products.find(p => p.id === id);
-            cart.addItem(product);
-        }
-
-        function removeItem(id) {
-            cart.removeItem(id);
-        }
-
-        window.addEventListener('scroll', () => {
-            const footer = document.getElementById('footer');
-            const docHeight = document.documentElement.scrollHeight;
-            const windowHeight = window.innerHeight;
-            const scrollPosition = window.scrollY;
-
-            if (scrollPosition + windowHeight >= docHeight) {
-                footer.classList.add('show');
-            } else {
-                footer.classList.remove('show');
-            }
-        });
+        document.getElementById("product-list").append(...products.map(p => p.createProductElement()));
     </script>
+
 </body>
 </html>
